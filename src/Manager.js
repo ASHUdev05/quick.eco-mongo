@@ -59,7 +59,7 @@ class MongoManager {
      */
     initDatabase() {
         return new Promise(async (resolve, reject) => {
-            Mongoose.connect(this.uri, Object.assign(DefaultMongoOptions, this.options))
+            Mongoose.createConnection(this.uri, Object.assign(DefaultMongoOptions, this.options))
                 .then((connection) => {
                     this.connected = true;
                     this.connection = connection;
